@@ -1,0 +1,7 @@
+<h2>Login</h2>
+
+<%= bootstrap_form_tag url: login_path do %>
+  <%= text_field_tag :name %>
+  <%= password_field_tag :password %>
+  <%= submit_tag "Login" %>
+<% end %>
