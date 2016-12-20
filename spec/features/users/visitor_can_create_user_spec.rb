@@ -12,10 +12,8 @@ RSpec.describe "User visits login page" do
 
     user = User.first
 
-    expect(current_path).to eq user_path(user)
+    expect(current_path).to eq login_path
     expect(page).to have_content "Account successfully created!"
-    expect(page).to have_content "Logged in as Kyle"
-    expect(page).to have_link "Logged in as Kyle", edit_user_path(user)
   end
 
   scenario "enters invalid data to create an account" do
