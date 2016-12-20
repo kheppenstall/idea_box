@@ -19,6 +19,21 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = "Account successfully updated!"
+      redirect_to user_path(@user)
+    else
+      flash.now[:danger] = @user.errors.full_messages.first
+      render :edit
+    end
+  end
+
   private
 
   def user_params

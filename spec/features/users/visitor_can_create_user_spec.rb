@@ -8,7 +8,7 @@ RSpec.describe "User visits login page" do
     fill_in "user[email]", with: "kyle@example.com"
     fill_in "user[password]", with: "password"
 
-    click_on "Create Account"
+    click_on "Create User"
 
     user = User.first
 
@@ -21,7 +21,7 @@ RSpec.describe "User visits login page" do
   scenario "enters invalid data to create an account" do
     visit new_user_path
 
-    click_on "Create Account"
+    click_on "Create User"
 
     expect(page).to have_content "Name can't be blank"
   end
@@ -35,7 +35,7 @@ RSpec.describe "User visits login page" do
     fill_in "user[email]", with: user.email
     fill_in "user[password]", with: "password"
 
-    click_on "Create Account"
+    click_on "Create User"
 
     expect(page).to have_content "Email has already been taken"
   end

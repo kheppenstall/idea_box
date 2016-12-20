@@ -39,7 +39,6 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'orderly'
   gem 'faker'
-  gem 'rails-controller-testing'
 end
 
 group :development do
