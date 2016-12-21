@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  resources 'users' do
-    resources 'ideas', only: [:index, :destroy, :new, :create]
+  resources :users do
+    resources :ideas, only: [:index, :destroy, :new, :create]
   end
 
-  resources 'categories', only: [:new, :create, :index, :destroy]
+  namespace :admin do
+    resources :categories, only: [:new, :create, :index, :destroy]
+  end
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
