@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "User edits account" do
   scenario "with valid data" do
-    user = create(:user)
+    user = logged_in_user
 
     visit edit_user_path(user)
 
@@ -17,7 +17,7 @@ RSpec.describe "User edits account" do
   end
 
   scenario "with invalid data" do
-    user = create(:user)
+    user = logged_in_user
 
     visit edit_user_path(user)
 

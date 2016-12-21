@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+
   def new
     @user = User.new
   end
@@ -16,15 +18,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:success] = "Account successfully updated!"
       redirect_to user_path(@user)
@@ -35,7 +34,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
+    reset_session
     @user.destroy
     flash[:danger] = "Account deleted."
     redirect_to new_user_path
@@ -43,7 +42,12 @@ class UsersController < ApplicationController
 
   private
 
+  def set_user
+    @user = current_user
+  end
+
   def user_params
     params.require(:user).permit(:name, :password, :email)
   end
+  
 end
