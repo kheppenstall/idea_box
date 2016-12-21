@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources 'users'
+  resources 'users' do
+    resources 'ideas', only: [:index, :destroy]
+  end
+
   resources 'categories', only: [:new, :create, :index, :destroy]
 
   get '/login', to: 'sessions#new'

@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    redirect_to user_ideas_path(@user)
   end
 
   def edit
@@ -26,7 +27,7 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       flash[:success] = "Account successfully updated!"
-      redirect_to user_path(@user)
+      redirect_to user_ideas_path(@user)
     else
       flash.now[:danger] = @user.errors.full_messages.first
       render :edit

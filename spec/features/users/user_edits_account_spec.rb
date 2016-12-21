@@ -12,8 +12,8 @@ RSpec.describe "User edits account" do
 
     click_on "Update User"
 
-    expect(current_path).to eq user_path(user)
-    # expect(page).to have_content "Logged in as New Name"
+    expect(current_path).to eq user_ideas_path(user)
+    expect(page).to have_content "Logged in as New Name"
   end
 
   scenario "with invalid data" do

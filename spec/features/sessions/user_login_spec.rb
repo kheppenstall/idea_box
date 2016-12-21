@@ -9,7 +9,7 @@ RSpec.describe "User visit login page" do
     fill_in "password", with: "password"
     click_on "Enter"
 
-    expect(current_path).to eq user_path(user)
+    expect(current_path).to eq user_ideas_path(user)
     expect(page).to have_link "Logged in as #{user.name}", edit_user_path(user)
     expect(page).to have_content "You successfully logged in!"
     expect(page).to have_link "Logout", logout_path

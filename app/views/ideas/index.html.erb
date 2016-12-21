@@ -1,0 +1,27 @@
+<h2>Ideas</h2>
+
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Index</th>
+        <th>Category</th>
+        <th>Content</th>
+        <th>Remove?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @ideas.each_with_index do |idea, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= idea.category.name %></td>
+        <td><%= idea.content %></td>
+        <td>
+          <%= link_to "Delete", user_idea_path(@user, idea),
+          method: :delete, class: "btn-sm btn-default" %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
