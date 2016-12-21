@@ -8,7 +8,7 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_uniqueness_of (:email) }
   end
 
-  # context "associations" do
-  #   it { should have_many(:ideas) }
-  # end
+  context "associations" do
+    it { should have_many(:ideas) }
+  end
 end

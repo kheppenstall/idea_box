@@ -22,7 +22,7 @@ class CategoriesController < ApplicationController
   def destroy
     @category = Category.find(params[:id])
     @category.destroy
-    flash[:sucess] = "#{@category.name} deleted."
+    flash[:warning] = "#{@category.name} deleted."
     redirect_to categories_path
   end
 

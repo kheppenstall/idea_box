@@ -6,7 +6,7 @@ RSpec.describe Category, type: :model do
     it { is_expected.to validate_uniqueness_of(:name) }
   end
 
-  # context "associations" do
-  #   it { should have_many(:ideas) }
-  # end
+  context "associations" do
+    it { should have_many(:ideas) }
+  end
 end

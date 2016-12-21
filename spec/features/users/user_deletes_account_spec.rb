@@ -7,20 +7,20 @@ RSpec.describe "User deletes an account" do
     visit edit_user_path(user)
     click_on "Delete Account"
 
-    expect(page).to have_content "Account deleted"
+    expect(page).to have_content "Account deleted" 
     expect(current_path).to eq new_user_path
     expect(User.count).to eq 0
   end
 
-  # scenario "and all ideas are deleted" do
-  #   user = logged_in_user
-  #   user.ideas << create_list(:idea, 5)
+  scenario "and all ideas are deleted" do
+    user = logged_in_user
+    user.ideas << create_list(:idea, 5)
 
-  #   expect(Idea.count).to eq 5
+    expect(Idea.count).to eq 5
 
-  #   visit edit_user_path(user)
-  #   click_on "Delete Account"
+    visit edit_user_path(user)
+    click_on "Delete Account"
 
-  #   expect(Idea.count).to eq 0
-  # end
+    expect(Idea.count).to eq 0
+  end
 end

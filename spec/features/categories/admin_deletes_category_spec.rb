@@ -22,13 +22,15 @@ RSpec.describe "Admin visits categories index" do
     expect(Category.count).to eq 0
   end
 
-  # scenario "deletes category and jobs are deleted" do
-  #   category = create(:category_with_ideas)
-      # expect(Idea.count).to eq 3
-  #   visit categories_path
-  #   click_on "Delete"
+  scenario "deletes category and jobs are deleted" do
+    category = create(:category_with_ideas)
 
-  #   expect(Category.count).to eq 0
-  #   expect(Idea.count).to eq 0
-  # end
+    expect(Idea.count).to eq 3
+
+    visit categories_path
+    click_on "Delete"
+
+    expect(Category.count).to eq 0
+    expect(Idea.count).to eq 0
+  end
 end
