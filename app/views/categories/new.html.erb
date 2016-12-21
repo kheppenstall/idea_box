@@ -1,0 +1,9 @@
+<h2>Create a Category</h2>
+
+<div class="container">
+  <%= bootstrap_form_for @category do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit %>
+
+  <% end %>
+</div>
