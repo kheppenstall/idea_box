@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "User visits ideas index" do
-  context "when logged in"
+RSpec.describe "Visits ideas index" do
+  context "user"
     scenario "sees ideas and their categories" do
       user = logged_in_user
       ideas = create(:category_with_ideas).ideas
@@ -15,12 +15,14 @@ RSpec.describe "User visits ideas index" do
         expect(page).to have_content idea.content
       end
     end
-  context "when logged out" do
-    scenario "404 raised" do
+
+  context "visitor" do
+    scenario "redirect to login" do
       user = create(:user)
 
       visit user_ideas_path(user)
 
+      expect(page).to have_content "Login required to access page."
       expect(current_path).to eq login_path
     end
   end

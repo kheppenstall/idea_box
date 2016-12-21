@@ -9,7 +9,10 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
-    redirect_to login_path unless current_user
+    unless current_user
+      flash[:danger] = "Login required to access page."
+      redirect_to login_path
+    end
   end
 
    
