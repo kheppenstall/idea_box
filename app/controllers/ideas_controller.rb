@@ -18,11 +18,17 @@ class IdeasController < ApplicationController
     @categories = Category.all
   end
 
-  # def create
-  #   @idea = @user.ideas.new(idea_params)
-
-
-  # end
+  def create
+    @idea = @user.ideas.new(idea_params)
+    if @idea.save
+      flash[:success] = "Idea added!"
+      redirect_to user_ideas_path(@user)
+    else
+      @categories = Category.all
+      flash[:danger] = @idea.errors.full_messages.first
+      render :new
+    end
+  end
 
   private
 
