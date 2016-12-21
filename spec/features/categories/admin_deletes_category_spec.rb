@@ -23,10 +23,8 @@ RSpec.describe "Admin visits categories index" do
   end
 
   scenario "deletes category and jobs are deleted" do
-    admin_category = create(:category_with_ideas)
-
-    expect(Idea.count).to eq 3
-
+    category = create(:category_with_ideas)
+      expect(Idea.count).to eq 3
     visit admin_categories_path
     click_on "Delete"
 
