@@ -1,6 +1,6 @@
 class IdeasController < ApplicationController
 
-  before_action :set_user, only: [:index, :destroy, :new]
+  before_action :set_user, only: [:index, :destroy, :new, :create]
 
   def index
     @ideas = @user.ideas
@@ -18,10 +18,20 @@ class IdeasController < ApplicationController
     @categories = Category.all
   end
 
+  # def create
+  #   @idea = @user.ideas.new(idea_params)
+
+
+  # end
+
   private
 
   def set_user
     @user = User.find(params[:user_id])
+  end
+
+  def idea_params
+    params.require(:idea).permit(:content, :category_id)
   end
 
 end
