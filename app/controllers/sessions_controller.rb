@@ -15,4 +15,10 @@ class SessionsController < ApplicationController
     end
   end
 
+  def destroy
+    reset_session
+    flash[:warning] = "You are now logged out."
+    redirect_to login_path
+  end
+
 end
