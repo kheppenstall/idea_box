@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources 'users' do
-    resources 'ideas', only: [:index, :destroy]
+    resources 'ideas', only: [:index, :destroy, :new]
   end
 
   resources 'categories', only: [:new, :create, :index, :destroy]

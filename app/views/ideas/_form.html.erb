@@ -1,0 +1,8 @@
+<div class="col-md-6">
+  <%= bootstrap_form_for [@user, @idea] do |f| %>
+    <%= f.collection_select :category_id, @categories.order(:name),:id, 
+    :name, include_blank: false %>
+    <%= f.text_area :content %>
+    <%= f.submit %>
+  <% end %>
+</div>
