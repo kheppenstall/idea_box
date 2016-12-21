@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Admin visits categories index" do
   scenario "sees all categories" do
+    login_admin
     category_one, category_two = create_list(:category, 2)
 
     visit admin_categories_path
@@ -11,6 +12,7 @@ RSpec.describe "Admin visits categories index" do
   end
 
   scenario "deletes a category" do
+    login_admin
     category = create(:category)
     name = category.name
 
@@ -23,6 +25,7 @@ RSpec.describe "Admin visits categories index" do
   end
 
   scenario "deletes category and jobs are deleted" do
+    login_admin
     category = create(:category_with_ideas)
       expect(Idea.count).to eq 3
     visit admin_categories_path
