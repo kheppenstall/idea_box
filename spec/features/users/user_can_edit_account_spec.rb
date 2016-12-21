@@ -19,8 +19,7 @@ RSpec.describe "User edits account" do
   scenario "with invalid data" do
     user = create(:user)
 
-    visit user_path(user)
-    click_on "Logged in as #{user.name}"
+    visit edit_user_path(user)
 
     fill_in "user[name]", with: ""
 
