@@ -6,6 +6,12 @@
           <li><%= link_to "Logout", logout_path, method: 'delete' %></li>   
         <% else %>
           <li><%= link_to "Login Page", login_path %></li>
+        <% end %>    
+      </ul>
+       <ul class="nav navbar-nav navbar-left">
+        <% if current_user %>
+          <li><%= link_to "My Ideas", user_ideas_path(current_user) %></li>
+        <% else %>
           <li><%= link_to "Create an Account", new_user_path %></li>
         <% end %>    
       </ul>
