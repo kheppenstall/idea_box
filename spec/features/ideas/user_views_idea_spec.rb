@@ -12,7 +12,7 @@ RSpec.describe "Visit idea page" do
 
       expect(current_path).to eq user_idea_path(user, idea)
       expect(page).to have_content idea.content
-      expect(page).to have_content idea.
+      expect(page).to have_content idea.category.name
       expect(page).to have_link "My Ideas", user_ideas_path(user)
     end
   end
