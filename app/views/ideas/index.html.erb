@@ -7,6 +7,7 @@
         <th>Index</th>
         <th>Category</th>
         <th>Content</th>
+        <th>Edit</th>
         <th>Remove?</th>
       </tr>
     </thead>
@@ -16,6 +17,10 @@
         <td><%= index + 1 %></td>
         <td><%= idea.category.name %></td>
         <td><%= idea.content %></td>
+        <td>
+            <%= link_to "Edit", edit_user_idea_path(@user, idea),
+            class: "btn-sm btn-default" %>
+        </td>
         <td>
           <%= link_to "Delete", user_idea_path(@user, idea),
           method: :delete, class: "btn-sm btn-default" %>

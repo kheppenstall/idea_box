@@ -1,9 +1,11 @@
 class IdeasController < ApplicationController
 
-  before_action :set_user, only: [:index, :destroy, :new, :create]
+  before_action :set_user
+  before_action :set_idea, only: [:destroy, :edit, :update]
+  before_action :set_categories, only: [:new, :edit]
 
   def index
-    @ideas = @user.ideas
+    set_ideas
   end
 
   def destroy
@@ -15,7 +17,6 @@ class IdeasController < ApplicationController
 
   def new
     @idea = @user.ideas.new
-    @categories = Category.all
   end
 
   def create
@@ -24,20 +25,46 @@ class IdeasController < ApplicationController
       flash[:success] = "Idea added!"
       redirect_to user_ideas_path(@user)
     else
-      @categories = Category.all
+      set_categories
       flash[:danger] = @idea.errors.full_messages.first
       render :new
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @idea.update(idea_params)
+      set_ideas
+      flash[:success] = "Idea updated!"
+      redirect_to user_ideas_path(@user)
+    else
+      set_categories
+      flash.now[:danger] = @idea.errors.full_messages.first
+      render :edit
+    end
+  end
+
   private
+
+  def set_ideas
+    @ideas = @user.ideas
+  end
 
   def set_user
     @user = User.find(params[:user_id])
   end
 
+  def set_idea
+    @idea = @user.ideas.find(params[:id])
+  end
+
+  def set_categories
+    @categories = Category.order(:name)
+  end
+
   def idea_params
     params.require(:idea).permit(:content, :category_id)
   end
-
 end
