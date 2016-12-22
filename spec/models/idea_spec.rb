@@ -8,7 +8,7 @@ RSpec.describe Idea, type: :model do
   context "associations" do
     it { should belong_to(:user) }
     it { should belong_to(:category) }
-    # it { should have_many(:image_ideas) }
-    # it { should have_many(:images, through: :image_ideas) }
+    it { should have_many(:idea_images) }
+    it { should have_many(:images), through: :idea_images }
   end
 end
