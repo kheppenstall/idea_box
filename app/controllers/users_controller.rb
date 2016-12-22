@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   skip_before_action :require_login, only: [:new, :create]
-  before_action :verify_user, except: [:new, :create]
+  skip_before_action :verify_user, only: [:new, :create]
 
   def new
     @user = User.new
@@ -43,18 +43,6 @@ class UsersController < ApplicationController
   end
 
   private
-
-  def set_user
-    @user = User.find(params[:id])
-  end
-
-  def verify_user
-    unless current_user == set_user
-      reset_session
-      flash[:danger] = "Login required to access page"
-      redirect_to login_path
-    end
-  end
 
   def user_params
     params.require(:user).permit(:name, :password, :email)
