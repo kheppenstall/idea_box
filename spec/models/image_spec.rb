@@ -10,6 +10,6 @@ RSpec.describe Image, type: :model do
 
   context "associations" do
     it { should have_many(:idea_images) }
-    it { should have_many(:ideas), through: :idea_images }
+    it { should have_many(:ideas) }
   end
 end

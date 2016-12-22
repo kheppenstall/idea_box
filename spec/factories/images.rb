@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :image do
-    description "MyString"
-    url "MyString"
+    description { Faker::Team.creature }
+    url         { Faker::Avatar.image }
   end
 end
