@@ -1,7 +1,7 @@
 class IdeasController < ApplicationController
 
   before_action :set_user
-  before_action :set_idea, only: [:destroy, :edit, :update]
+  before_action :set_idea, only: [:destroy, :edit, :update, :show]
   before_action :set_categories, only: [:new, :edit]
 
   def index
@@ -29,6 +29,9 @@ class IdeasController < ApplicationController
       flash[:danger] = @idea.errors.full_messages.first
       render :new
     end
+  end
+
+  def show
   end
 
   def edit

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "User visits edit path" do
-  context "when logged in" do
+RSpec.describe "User edits idea" do
+  context "logged in" do
     scenario "enters valid data" do
       user = logged_in_user
       user.ideas << create(:category_with_ideas).ideas.first
@@ -32,7 +32,7 @@ RSpec.describe "User visits edit path" do
     end
   end
 
-  context "when logged out" do
+  context "logged out" do
     scenario "404" do
       user = create(:user)
       user.ideas << create(:category_with_ideas).ideas.first
