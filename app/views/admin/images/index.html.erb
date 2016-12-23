@@ -1,0 +1,14 @@
+<h2>Images <%= link_to "Add Image", new_admin_image_path, class: "btn btn-default" %></h2>
+
+<div class="row">
+  <% @images.each do |image| %>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img src=<%= image.url %> alt="">
+        <div class="caption">
+          <h3><%= image.description %></h3>
+        </div>
+       </div>
+    </div>
+  <% end %>
+</div>

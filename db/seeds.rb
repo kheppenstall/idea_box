@@ -1,5 +1,7 @@
 FactoryGirl.create_list(:category, 10)
-FactoryGirl.create_list(:image, 10)
+
+Image.create(description: "Space", url: "http://marshall.org/wp-content/themes/marshall/img/featured-space-policy.jpg")
+Image.create(description: "Dog", url: "http://cdn3-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-15.jpg")
 
 admin = User.create(name: "admin", password: "admin", email: "admin@admin.com", role: 1)
 
