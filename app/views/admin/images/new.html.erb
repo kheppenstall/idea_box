@@ -1,0 +1,9 @@
+<h2>Add an Image</h2>
+
+<div class="col-md-6">
+  <%= bootstrap_form_for [:admin, @image] do |f| %>
+    <%= f.text_field :description %>
+    <%= f.text_field :url, label: "URL" %>
+    <%= f.submit %>
+  <% end %>
+</div>

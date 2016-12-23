@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Images path" do
   context "as admin" do
     scenario "see all images" do
-      create_list(:image, 5)
+      create_list(:image, 2)
       login_admin
 
       visit admin_images_path
