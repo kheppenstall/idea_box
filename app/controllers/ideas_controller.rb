@@ -32,6 +32,7 @@ class IdeasController < ApplicationController
   end
 
   def show
+    @images = @idea.images
   end
 
   def edit
