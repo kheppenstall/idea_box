@@ -17,34 +17,38 @@ class IdeasController < ApplicationController
 
   def new
     @idea = @user.ideas.new
+    @images = Image.all
   end
 
   def create
     @idea = @user.ideas.new(idea_params)
     if @idea.save
       flash[:success] = "Idea added!"
-      redirect_to user_ideas_path(@user)
+      redirect_to user_idea_path(@user, @idea)
     else
+      set_images
       set_categories
       flash[:danger] = @idea.errors.full_messages.first
-      render :new
+      render  :new
     end
   end
 
   def show
-    @images = @idea.images
+    set_images
   end
 
   def edit
+    set_images
   end
 
   def update
     if @idea.update(idea_params)
       set_ideas
       flash[:success] = "Idea updated!"
-      redirect_to user_ideas_path(@user)
+      redirect_to user_idea_path(@user, @idea)
     else
       set_categories
+      set_images
       flash.now[:danger] = @idea.errors.full_messages.first
       render :edit
     end
@@ -54,6 +58,10 @@ class IdeasController < ApplicationController
 
   def set_ideas
     @ideas = @user.ideas
+  end
+
+  def set_images
+    @images = Image.all
   end
 
   def set_user
@@ -69,6 +77,6 @@ class IdeasController < ApplicationController
   end
 
   def idea_params
-    params.require(:idea).permit(:content, :category_id)
+    params.require(:idea).permit(:content, :category_id, :images)
   end
 end

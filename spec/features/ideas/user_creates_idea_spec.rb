@@ -6,14 +6,17 @@ RSpec.describe "Creates idea" do
     scenario "with valid attributes" do
       user = logged_in_user
       category = create(:category)
+      image = create(:image)
 
       visit new_user_idea_path(user)
 
       fill_in "idea[content]", with: "Very important idea."
+      select category.name, from: "idea[category_id]"
+      select image.description, from: "idea[images][]"
 
       click_on "Create Idea"
 
-      expect(current_path).to eq user_ideas_path(user)
+      expect(current_path).to eq user_idea_path(user, Idea.first)
       expect(page).to have_content "Idea added!"
       expect(page).to have_content "Very important idea"
       expect(page).to have_content category.name

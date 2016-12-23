@@ -3,6 +3,7 @@
     <%= f.collection_select :category_id, @categories,:id, 
     :name, include_blank: false %>
     <%= f.text_area :content %>
+    <%= f.collection_select :images, @images, :id, :description, { class: "selectpicker" }, {:multiple => true} %>
     <%= f.submit %>
   <% end %>
 </div>

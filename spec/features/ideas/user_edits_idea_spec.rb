@@ -12,7 +12,7 @@ RSpec.describe "User edits idea" do
       fill_in "idea[content]", with: "My wonderful idea"
       click_on "Update Idea"
 
-      expect(current_path).to eq user_ideas_path(user)
+      expect(current_path).to eq user_idea_path(user, Idea.first)
       expect(page).to have_content "Idea updated!"
       expect(page).to have_content "My wonderful idea"
       expect(page).to have_content Category.first.name
