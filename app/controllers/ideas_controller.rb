@@ -34,7 +34,7 @@ class IdeasController < ApplicationController
   end
 
   def show
-    set_images
+    @images = @idea.images
   end
 
   def edit
