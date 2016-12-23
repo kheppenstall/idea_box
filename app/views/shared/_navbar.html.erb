@@ -11,9 +11,14 @@
        <ul class="nav navbar-nav navbar-left">
         <% if current_user %>
           <li><%= link_to "My Ideas", user_ideas_path(current_user) %></li>
+          <li><%= link_to "New Idea", new_user_idea_path(current_user) %>
         <% else %>
           <li><%= link_to "Create an Account", new_user_path %></li>
         <% end %>    
+        <% if current_admin? %>
+          <li><%= link_to "Categories", admin_categories_path %></li>
+          <li><%= link_to "Images", admin_categories_path %>
+        <% end %>
       </ul>
   </div>
 </nav>

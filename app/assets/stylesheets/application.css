@@ -26,3 +26,7 @@
 width: 100%; /* use this, or not */
 margin: auto;
 }
+
+.btn-sm {
+    float: right;
+}
