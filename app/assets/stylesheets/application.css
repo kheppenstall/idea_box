@@ -30,3 +30,51 @@ margin: auto;
 .btn-sm {
     float: right;
 }
+
+ h1 {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+ }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+
+
+
+body {
+
+background: #673AB7; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #673AB7 , #512DA8); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #673AB7 , #512DA8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
+input {
+   color: black;
+}
+
+.list-group-item {
+    color: black;
+}
+   
+
+.btn-default {
+    background: #673AB7; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #673AB7 , #512DA8); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #673AB7 , #512DA8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    color: white;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: black;
+}
+
+.btn-sm {
+     border: 1px solid white;
+}
+
+
+        
